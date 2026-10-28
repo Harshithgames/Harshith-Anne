@@ -1,0 +1,17 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FriendZone Games – Play with friends</title><meta name="description" content="Neon browser games for you and your friends.">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"></head>
+<body><div class="wrap">
+<nav><div class="logo">Friend<b>Zone</b> Games</div><a class="btn sm c" href="#lb">Leaderboard</a></nav>
+<section class="hero"><h1>PLAY TOGETHER.<br>WIN TOGETHER.</h1><p>Fast, free, neon-soaked browser games built for you and your friends. No downloads.</p><a class="btn" href="race.html">▶ PLAY NOW</a></section>
+<h2>Games</h2><div class="grid">
+<div class="card"><div class="art">🏎️</div><div class="body"><h3>Neon Rush</h3><p>2-player racing. Same screen or online rooms. 3 laps to glory.</p><a class="btn sm" href="race.html">Play</a></div></div>
+<div class="card soon"><div class="art">🏓</div><div class="body"><h3>Pixel Pong</h3><p>Coming soon.</p><span class="btn sm c">Soon</span></div></div>
+<div class="card soon"><div class="art">🧩</div><div class="body"><h3>Block Duel</h3><p>Coming soon.</p><span class="btn sm c">Soon</span></div></div>
+</div>
+<h2 id="lb">Leaderboard</h2><table><thead><tr><th>#</th><th>Player</th><th>Wins</th></tr></thead><tbody id="lbBody"></tbody></table>
+<footer>© FriendZone Games</footer></div>
+<script>
+const lb=JSON.parse(localStorage.getItem('fz_lb')||'{}');const rows=Object.entries(lb).sort((a,b)=>b[1]-a[1]).slice(0,10);
+document.getElementById('lbBody').innerHTML=rows.length?rows.map(([n,w],i)=>`<tr><td>${i+1}</td><td>${n.replace(/</g,'')}</td><td>${w}</td></tr>`).join(''):'<tr><td colspan=3 class="mut">No races yet — be the first!</td></tr>';
+</script></body></html>
